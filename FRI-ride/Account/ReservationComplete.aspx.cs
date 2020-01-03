@@ -11,8 +11,8 @@ public partial class Account_ReservationComplete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=FRI-ride;Persist Security Info=False;User ID=zm8184;Password=Lojze4bojze;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string queryString = "SELECT uporabnik.ime, uporabnik.priimek, uporabnik.tel_stevilka, uporabnik.mail, avto.znamka, avto.model, avto.reg_stevilka, oglas.cas_datum, oglas.lokacija FROM uporabnik INNER JOIN voznik ON uporabnik.id_uporabnik = voznik.id_uporabnik INNER JOIN avto ON voznik.id_avto = avto.id_avto INNER JOIN oglas ON voznik.id_voznik = oglas.id_voznik WHERE oglas.id_oglas = " + Request.QueryString["id"] + ";";
 
 

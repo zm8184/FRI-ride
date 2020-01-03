@@ -16,7 +16,7 @@ public partial class Account_AddRide : System.Web.UI.Page
     {
         Driver_User_Name.Text = User.Identity.GetUserName();
         SqlConnection connection = null;
-        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=FRI-ride;Persist Security Info=False;User ID=zm8184;Password=Lojze4bojze;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string queryString = "SELECT voznik.id_voznik FROM voznik JOIN uporabnik ON uporabnik.id_uporabnik = voznik.id_uporabnik WHERE uporabnik.username = '" + User.Identity.GetUserName() + "';";
 
         using (SqlConnection conn = new SqlConnection(connectionString))
