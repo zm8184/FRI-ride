@@ -57,7 +57,7 @@ public partial class Account_AddRide : System.Web.UI.Page
         DateTime date = DateTime.Parse(DateRide.Value,
                           System.Globalization.CultureInfo.InvariantCulture);
         string queryString = "INSERT INTO oglas(id_voznik, lokacija, cas_datum) values('" + driver_id + "','" + Start_location.Text + "','" + date + "');";
-        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=FRI-ride;Persist Security Info=False;User ID=zm8184;Password=Lojze4bojze;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         CreateCommand(queryString, connectionString);
         
         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

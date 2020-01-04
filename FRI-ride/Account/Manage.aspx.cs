@@ -140,7 +140,7 @@ public partial class Account_Manage : System.Web.UI.Page
 
     protected void RegisterDriver(object sender, EventArgs e)
     {
-        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=FRI-ride;Persist Security Info=False;User ID=zm8184;Password=Lojze4bojze;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         string username = User.Identity.GetUserName();
         string queryString = "select id_uporabnik from uporabnik where username='" + username + "';";
 
