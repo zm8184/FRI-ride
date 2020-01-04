@@ -29,7 +29,7 @@ public partial class Account_ReservationComplete : System.Web.UI.Page
                     driver.Text =  (string)reader["ime"] + " " +(string)reader["priimek"];
                     phone_number.Text = (string)reader["tel_stevilka"];
                     car.Text = (string)reader["znamka"] + " " + (string)reader["model"] + ", Reg. num: " + (string)reader["reg_stevilka"];
-                    time.Text = (string)reader["cas_datum"];
+                    time.Text = reader["cas_datum"].ToString();
                     lokacija.Text = (string)reader["lokacija"];
 
 

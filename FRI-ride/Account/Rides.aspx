@@ -33,6 +33,8 @@
             <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
             <br />
             <br />
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName="getID" Font-Bold="True">Join Ride</asp:LinkButton>
+            <br />
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
     </asp:DataList>

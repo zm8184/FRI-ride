@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,8 +55,12 @@ public partial class Account_AddRide : System.Web.UI.Page
 
     protected void AddRide_Click(object sender, EventArgs e)
     {
-        DateTime date = DateTime.Parse(DateRide.Value,
-                          System.Globalization.CultureInfo.InvariantCulture);
+        String dateTime = DateRide.Value.Replace('T', ' ');
+        DateTimeFormatInfo fmt = (new CultureInfo("hr-HR")).DateTimeFormat;
+        CultureInfo en = new CultureInfo("en-US");
+
+        DateTime date = DateTime.Parse(dateTime, en);
+
         string queryString = "INSERT INTO oglas(id_voznik, lokacija, cas_datum) values('" + driver_id + "','" + Start_location.Text + "','" + date + "');";
         string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         CreateCommand(queryString, connectionString);
