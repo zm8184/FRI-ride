@@ -6,16 +6,25 @@
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
             <div class="form-group">
+                <h2>Detailes of ride.</h2>
                 <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="823px">
+                    
+                    <AlternatingItemStyle BackColor="White" />
+                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    <ItemStyle BackColor="#E3EAEB" />
                     <ItemTemplate>
-                        name:
+                        <strong>Name:</strong>
                         <asp:Label ID="nameLabel" runat="server" Text='<%# Eval("name") %>' />
                         <br />
-                        surname:
+                        <strong>Surname:</strong>
                         <asp:Label ID="surnameLabel" runat="server" Text='<%# Eval("surname") %>' />
                         <br />
-                        number:
+                        <strong>Number:</strong>
                         <asp:Label ID="numberLabel" runat="server" Text='<%# Eval("number") %>' />
+                        <br />
+                        <strong>Location:</strong>
+                        <asp:Label ID="locationLabel" runat="server" Text='<%# Eval("location") %>' />
                         <br />
                         <br />
                     </ItemTemplate>

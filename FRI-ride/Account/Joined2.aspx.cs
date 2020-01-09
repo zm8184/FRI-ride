@@ -50,7 +50,7 @@ public partial class Account_Rides : System.Web.UI.Page
 
         SqlDataSource1.SelectParameters.Add("userId", userId.ToString());
 
-        SqlDataSource1.SelectCommand = "SELECT u.ime AS name, u.priimek AS surname, u.tel_stevilka AS number  FROM uporabnik AS u LEFT OUTER JOIN prevoz AS p ON p.id_uporabnik = u.id_uporabnik LEFT OUTER JOIN oglas AS o ON o.id_oglas = p.id_oglas LEFT OUTER JOIN voznik AS v ON v.id_voznik = o.id_voznik WHERE v.id_voznik = @userId;";
+        SqlDataSource1.SelectCommand = "SELECT u.ime AS name, u.priimek AS surname, u.tel_stevilka AS number, o.lokacija AS location FROM uporabnik AS u LEFT OUTER JOIN prevoz AS p ON p.id_uporabnik = u.id_uporabnik LEFT OUTER JOIN oglas AS o ON o.id_oglas = p.id_oglas LEFT OUTER JOIN voznik AS v ON v.id_voznik = o.id_voznik WHERE v.id_voznik = @userId AND o.id_oglas = " + Request.QueryString["id"] +";";
 
     }
 

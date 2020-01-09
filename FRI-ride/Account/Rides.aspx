@@ -20,20 +20,19 @@
         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         <ItemStyle BackColor="#E3EAEB" />
         <ItemTemplate>
-            Username:
+            <strong>Username:</strong>
             <asp:Label ID="UsernameLabel" runat="server" Text='<%# Eval("Username") %>' />
             <br />
-            Number:
+            <strong>Number:</strong>
             <asp:Label ID="NumberLabel" runat="server" Text='<%# Eval("Number") %>' />
             <br />
-            Location:
+            <strong>Location:</strong>
             <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
             <br />
-            Time:
+            <strong>Time:</strong>
             <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
             <br />
-            <br />
-            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName="getID" Font-Bold="True">Join Ride</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CommandName="getID" Font-Bold="True">Join ride</asp:LinkButton>
             <br />
         </ItemTemplate>
         <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />

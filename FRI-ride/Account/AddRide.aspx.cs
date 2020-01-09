@@ -41,6 +41,7 @@ public partial class Account_AddRide : System.Web.UI.Page
             String url = "~/Account/Login";
             IdentityHelper.RedirectToReturnUrl(url, response: Response);
         }
+
     }
 
     private static void CreateCommand(string queryString, string connectionString)
@@ -50,6 +51,7 @@ public partial class Account_AddRide : System.Web.UI.Page
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Connection.Open();
             command.ExecuteNonQuery();
+            
         }
     }
 
@@ -61,11 +63,18 @@ public partial class Account_AddRide : System.Web.UI.Page
 
         DateTime date = DateTime.Parse(dateTime, en);
 
-        string queryString = "INSERT INTO oglas(id_voznik, lokacija, cas_datum) values('" + driver_id + "','" + Start_location.Text + "','" + date + "');";
+        string queryString = "SET DATEFORMAT dmy; INSERT INTO oglas(id_voznik, lokacija, cas_datum) values('" + driver_id + "','" + Start_location.Text + "','" + date + "');";
         string connectionString = @"Server=tcp:fri-ride.database.windows.net,1433;Initial Catalog=fri-ride;Persist Security Info=False;User ID=friride;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        CreateCommand(queryString, connectionString);
-        
-        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-        
+        try
+        {
+            CreateCommand(queryString, connectionString);
+
+        }
+        catch
+        {
+            ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", "alert('You do not have permission to do that')", true);
+        }
+
+
     }
 }
