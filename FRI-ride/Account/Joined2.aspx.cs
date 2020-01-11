@@ -33,7 +33,7 @@ public partial class Account_Rides : System.Web.UI.Page
 
         string username = User.Identity.GetUserName();
 
-        string queryString = "select id_uporabnik from uporabnik where username='" + username + "';";
+        string queryString = "SELECT voznik.id_voznik FROM voznik JOIN uporabnik ON uporabnik.id_uporabnik = voznik.id_uporabnik WHERE uporabnik.username = '" + username + "'; ";
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
             SqlCommand cmd = new SqlCommand(queryString, conn);

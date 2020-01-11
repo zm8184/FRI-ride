@@ -34,7 +34,7 @@ public partial class Account_Rides : System.Web.UI.Page
 
         string username = User.Identity.GetUserName();
 
-        string queryString = "select id_uporabnik from uporabnik where username='" + username + "';";
+        string queryString = "SELECT voznik.id_voznik FROM voznik JOIN uporabnik ON uporabnik.id_uporabnik = voznik.id_uporabnik WHERE uporabnik.username = '" + username + "';";
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
             SqlCommand cmd = new SqlCommand(queryString, conn);
@@ -51,7 +51,7 @@ public partial class Account_Rides : System.Web.UI.Page
 
         SqlDataSource1.SelectParameters.Add("userId", userId.ToString());
 
-        SqlDataSource1.SelectCommand = "SELECT o.id_oglas, o.cas_datum AS date, o.lokacija AS location FROM uporabnik AS u LEFT OUTER JOIN prevoz AS p ON p.id_uporabnik = u.id_uporabnik LEFT OUTER JOIN oglas AS o ON o.id_oglas = p.id_oglas LEFT OUTER JOIN voznik AS v ON v.id_voznik = o.id_voznik WHERE v.id_voznik = @userId;";
+        SqlDataSource1.SelectCommand = "SELECT DISTINCT o.id_oglas, o.cas_datum AS date, o.lokacija AS location FROM uporabnik AS u LEFT OUTER JOIN prevoz AS p ON p.id_uporabnik = u.id_uporabnik LEFT OUTER JOIN oglas AS o ON o.id_oglas = p.id_oglas LEFT OUTER JOIN voznik AS v ON v.id_voznik = o.id_voznik WHERE v.id_voznik = @userId;";
       
     }
 

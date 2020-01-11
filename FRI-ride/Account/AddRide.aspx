@@ -47,5 +47,5 @@
           <div id="map-canvas" style="height:800px;width: 800px;margin: 0px;padding: 0px"></div>      
     </div>
     <script src="../Scripts/maps.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=mapLocation&libraries=places" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=APIKEY&callback=mapLocation&libraries=places" async defer></script>
 </asp:Content>
