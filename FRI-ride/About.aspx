@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
     <h3>Shere a ride with another pearson.</h3>
-    <p>Why would you take your own car and go alone if you can go with someone else or and share a ride.
-       That way you help your wallet and the enviorment.
+    <p>Why would you take your own car and go alone if you can go with someone else and/or share a ride.
+       That way you help your wallet and the environment.
     </p>
 </asp:Content>
